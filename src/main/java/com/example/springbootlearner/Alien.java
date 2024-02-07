@@ -1,5 +1,7 @@
 package com.example.springbootlearner;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -9,6 +11,10 @@ public class Alien {
     private int aid;
     private String aname;
     private String tech;
+
+    @Autowired
+    @Qualifier("Lap")
+    private Laptop laptop;
 
     public Alien(){
         super();
@@ -33,8 +39,15 @@ public class Alien {
     public String getTech(){
         return tech;
     }
+    public void setLaptop(Laptop laptop){
+        this.laptop = laptop;
+    }
+    public Laptop getLaptop(){
+        return laptop;
+    }
 
     public void show(){
         System.out.println("In Show");
+        laptop.compile();
     }
 }
