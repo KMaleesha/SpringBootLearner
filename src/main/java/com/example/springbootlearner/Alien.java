@@ -1,12 +1,19 @@
 package com.example.springbootlearner;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope(value = "prototype")
 public class Alien {
     private int aid;
     private String aname;
     private String tech;
+
+    public Alien(){
+        super();
+        System.out.println("Object Created");
+    }
 
     public void setAid(int aid){
         this.aid = aid;
